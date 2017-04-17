@@ -2,6 +2,7 @@ import Foundation
 import Alamofire
 import Moya
 import RxSwift
+import Gloss
 
 #if COCOAPODS
 import Moya_Gloss
@@ -13,11 +14,12 @@ import RxMoyaGloss
 
 public typealias Scope = String
 public typealias Scopes = [Scope]
+public typealias Pagination = (sinceId: Int?, maxId: Int?)
 
 public class MastodonClient {
     public init() {
     }
-    
+
     public var plugins = [PluginType]()
 
     public func createApp(_ name: String, redirectUri: String = "urn:ietf:wg:oauth:2.0:oob", scopes: Scopes, url: URL) -> Observable<App> {
@@ -36,39 +38,39 @@ public class MastodonClient {
             .mapObject(type: AccessToken.self)
     }
 
-    public func getHomeTimeline(_ token: String, maxId: StatusId? = nil, sinceId: StatusId? = nil) -> Observable<[Status]> {
+    public func getHomeTimeline(_ token: String, maxId: StatusId? = nil, sinceId: StatusId? = nil) -> Observable<MastodonCollection<Status>> {
         let accessToken = AccessTokenPlugin(token: token)
         return RxMoyaProvider<Mastodon.Timelines>(
                 plugins: [plugins, [accessToken]].flatMap { $0 }
             )
             .request(.home(maxId, sinceId))
-            .mapArray(type: Status.self)
+            .mapCollection(Status.self)
     }
 
-    public func getPublicTimeline(_ token: String, isLocal: Bool = false, maxId: StatusId? = nil, sinceId: StatusId? = nil) -> Observable<[Status]> {
+    public func getPublicTimeline(_ token: String, isLocal: Bool = false, maxId: StatusId? = nil, sinceId: StatusId? = nil) -> Observable<MastodonCollection<Status>> {
         let accessToken = AccessTokenPlugin(token: token)
         return RxMoyaProvider<Mastodon.Timelines>(
                 plugins: [plugins, [accessToken]].flatMap { $0 }
             )
             .request(.pub(isLocal, maxId, sinceId))
-            .mapArray(type: Status.self)
+            .mapCollection(Status.self)
     }
 
-    public func getTagTimeline(_ token: String, tag: String, isLocal: Bool = false, maxId: StatusId? = nil, sinceId: StatusId? = nil) -> Observable<[Status]> {
+    public func getTagTimeline(_ token: String, tag: String, isLocal: Bool = false, maxId: StatusId? = nil, sinceId: StatusId? = nil) -> Observable<MastodonCollection<Status>> {
         let accessToken = AccessTokenPlugin(token: token)
         return RxMoyaProvider<Mastodon.Timelines>(
                 plugins: [plugins, [accessToken]].flatMap { $0 }
             )
             .request(.tag(tag, isLocal, maxId, sinceId))
-            .mapArray(type: Status.self)
+            .mapCollection(Status.self)
     }
 
-    public func getFavourites(_ token: String, maxId: StatusId? = nil, sinceId: StatusId? = nil) -> Observable<[Status]> {
+    public func getFavourites(_ token: String, maxId: StatusId? = nil, sinceId: StatusId? = nil) -> Observable<MastodonCollection<Status>> {
         let accessToken = AccessTokenPlugin(token: token)
         return RxMoyaProvider<Mastodon.Favourites>(
                 plugins: [plugins, [accessToken]].flatMap { $0 }
             )
             .request(.favourites(maxId, sinceId))
-            .mapArray(type: Status.self)
+            .mapCollection(Status.self)
     }
 }

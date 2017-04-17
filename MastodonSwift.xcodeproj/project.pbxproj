@@ -57,6 +57,8 @@
 		077037C51EA0B28C00AF238B /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077037B71EA0B28C00AF238B /* RxMoya.framework */; };
 		077037C61EA0B28C00AF238B /* RxMoyaGloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077037B81EA0B28C00AF238B /* RxMoyaGloss.framework */; };
 		077037C71EA0B28C00AF238B /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077037B91EA0B28C00AF238B /* RxSwift.framework */; };
+		54C23C2E1EA4924400619F65 /* MastodonCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C23C2D1EA4924400619F65 /* MastodonCollection.swift */; };
+		54C23C2F1EA4924400619F65 /* MastodonCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C23C2D1EA4924400619F65 /* MastodonCollection.swift */; };
 		E90E61B01EA16BC900E2DC19 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0712B1771E9CBF0400E5AEBC /* AccessToken.swift */; };
 		E90E61B11EA16BC900E2DC19 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0712B1781E9CBF0400E5AEBC /* Account.swift */; };
 		E90E61B21EA16BC900E2DC19 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0712B1791E9CBF0400E5AEBC /* App.swift */; };
@@ -109,7 +111,6 @@
 		E90E61E11EA16C0A00E2DC19 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0770379F1EA0B24800AF238B /* RxSwift.framework */; };
 		E90E61E81EA16D5C00E2DC19 /* MastodonSwift-macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = E90E61E71EA16D5C00E2DC19 /* MastodonSwift-macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9D432641EA22B7C0057A883 /* MastodonSwift-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 077037271EA0A83700AF238B /* MastodonSwift-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		OBJ_27 /* MastodonSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* MastodonSwiftTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,6 +177,7 @@
 		077037B71EA0B28C00AF238B /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
 		077037B81EA0B28C00AF238B /* RxMoyaGloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoyaGloss.framework; path = Carthage/Build/iOS/RxMoyaGloss.framework; sourceTree = "<group>"; };
 		077037B91EA0B28C00AF238B /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		54C23C2D1EA4924400619F65 /* MastodonCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MastodonCollection.swift; sourceTree = "<group>"; };
 		E90E61471EA150A800E2DC19 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/Mac/RxTest.framework; sourceTree = "<group>"; };
 		E90E619D1EA168AE00E2DC19 /* MoyaGloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MoyaGloss.framework; path = Carthage/Build/Mac/MoyaGloss.framework; sourceTree = "<group>"; };
 		E90E619E1EA168AE00E2DC19 /* ReactiveMoyaGloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveMoyaGloss.framework; path = Carthage/Build/Mac/ReactiveMoyaGloss.framework; sourceTree = "<group>"; };
@@ -184,7 +186,7 @@
 		E90E61E41EA16C9A00E2DC19 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E90E61E71EA16D5C00E2DC19 /* MastodonSwift-macOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MastodonSwift-macOS.h"; sourceTree = "<group>"; };
 		OBJ_11 /* MastodonSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MastodonSwiftTests.swift; sourceTree = "<group>"; };
-		OBJ_14 /* MastodonSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = MastodonSwiftTests.xctest; path = MastodonSwift.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_14 /* MastodonSwift.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = MastodonSwift.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -369,7 +371,7 @@
 		OBJ_12 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_14 /* MastodonSwiftTests.xctest */,
+				OBJ_14 /* MastodonSwift.xctest */,
 				0712B1C61E9CC26800E5AEBC /* MastodonSwift.framework */,
 				E90E61A81EA16B3300E2DC19 /* MastodonSwift.framework */,
 			);
@@ -395,6 +397,7 @@
 				0712B1761E9CBF0400E5AEBC /* Entities */,
 				0712B1871E9CBF0400E5AEBC /* Extensions */,
 				0712B18A1E9CBF0400E5AEBC /* MastodonClient.swift */,
+				54C23C2D1EA4924400619F65 /* MastodonCollection.swift */,
 				0712B18B1E9CBF0400E5AEBC /* Settings.swift */,
 				0712B18C1E9CBF0400E5AEBC /* Targets */,
 			);
@@ -480,7 +483,7 @@
 			);
 			name = MastodonSwiftTests;
 			productName = MastodonSwiftTests;
-			productReference = OBJ_14 /* MastodonSwiftTests.xctest */;
+			productReference = OBJ_14 /* MastodonSwift.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -564,6 +567,7 @@
 				0770372F1EA0AD6B00AF238B /* Context.swift in Sources */,
 				077037321EA0AD6B00AF238B /* Mention.swift in Sources */,
 				077037341EA0AD6B00AF238B /* Relationship.swift in Sources */,
+				54C23C2E1EA4924400619F65 /* MastodonCollection.swift in Sources */,
 				077037291EA0AD6B00AF238B /* AccessToken.swift in Sources */,
 				077037521EA0ADF700AF238B /* Accounts.swift in Sources */,
 				0770375F1EA0ADF700AF238B /* Search.swift in Sources */,
@@ -615,6 +619,7 @@
 				E90E61CA1EA16BC900E2DC19 /* Instances.swift in Sources */,
 				E90E61CB1EA16BC900E2DC19 /* Mastodon.swift in Sources */,
 				E90E61CC1EA16BC900E2DC19 /* Media.swift in Sources */,
+				54C23C2F1EA4924400619F65 /* MastodonCollection.swift in Sources */,
 				E90E61CD1EA16BC900E2DC19 /* Mutes.swift in Sources */,
 				E90E61CE1EA16BC900E2DC19 /* Notifications.swift in Sources */,
 				E90E61CF1EA16BC900E2DC19 /* OAuth.swift in Sources */,
@@ -629,7 +634,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_27 /* MastodonSwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
