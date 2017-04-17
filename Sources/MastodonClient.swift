@@ -62,4 +62,13 @@ public class MastodonClient {
             .request(.tag(tag, isLocal, maxId, sinceId))
             .mapArray(type: Status.self)
     }
+
+    public func getFavourites(_ token: String, maxId: StatusId? = nil, sinceId: StatusId? = nil) -> Observable<[Status]> {
+        let accessToken = AccessTokenPlugin(token: token)
+        return RxMoyaProvider<Mastodon.Favourites>(
+                plugins: [plugins, [accessToken]].flatMap { $0 }
+            )
+            .request(.favourites(maxId, sinceId))
+            .mapArray(type: Status.self)
+    }
 }

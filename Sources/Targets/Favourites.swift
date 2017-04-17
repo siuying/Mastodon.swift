@@ -3,7 +3,7 @@ import Moya
 
 extension Mastodon {
     public enum Favourites {
-        case favourites
+        case favourites(MaxId?, SinceId?)
     }
 }
 
@@ -17,7 +17,7 @@ extension Mastodon.Favourites: TargetType {
     public var path: String {
         switch self {
         case .favourites:
-            return "/"
+            return ""
         }
     }
     
@@ -31,9 +31,16 @@ extension Mastodon.Favourites: TargetType {
     
     /// The parameters to be incoded in the request.
     public var parameters: [String: Any]? {
+        var params: [String : Any] = [:]
         switch self {
-        case .favourites:
-            return nil
+        case .favourites(let maxId, let sinceId):
+            if let maxId = maxId {
+                params["max_id"] = maxId
+            }
+            if let sinceId = sinceId {
+                params["since_id"] = sinceId
+            }
+            return params
         }
     }
     
