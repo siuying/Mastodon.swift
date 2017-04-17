@@ -62,8 +62,8 @@ extension Mastodon.Timelines: TargetType {
         if let sinceId = sinceId {
             params["since_id"] = sinceId
         }
-        if let local = local {
-            params["local"] = local
+        if let local = local, local {
+            params["local"] = "true"
         }
         return params
     }
